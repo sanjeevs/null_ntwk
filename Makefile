@@ -5,7 +5,8 @@ OBJS := $(SOURCES:.cpp=.o)
 
 CC = g++
 CFLAGS = -std=c++14
-LDFLAGS = -lpthread
+INCLUDES = -I/usr/local/boost/boost_1_78_0
+LDFLAGS = -lpthread -lboost_unit_test_framework
 
 all: test_ts_deque
 	@echo Done building main
