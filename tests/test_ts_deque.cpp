@@ -5,7 +5,6 @@
 #include <random>
 
 int MAX_ENTRIES = 1000;
-#include <boost/test/included/unit_test.hpp>
 
 void enq_thread(TsDeque<int> &deq) {
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
@@ -35,7 +34,7 @@ void deq_thread(TsDeque<int> &deq) {
 }
 
 
-BOOST_AUTO_TEST_CASE(my_test) {
+int main(int argc, char* argv[]) {
     TsDeque<int> deq;
 
     std::thread t2(deq_thread, std::ref(deq));
@@ -45,5 +44,5 @@ BOOST_AUTO_TEST_CASE(my_test) {
     t1.join();
     t2.join();
 
-    BOOST_CHECK(deq.empty());
+    return 0;
 }

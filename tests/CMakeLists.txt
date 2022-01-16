@@ -1,0 +1,2 @@
+add_executable(test_ts_deque test_ts_deque.cpp)
+target_link_libraries(test_ts_deque Threads::Threads)
